@@ -2,7 +2,6 @@ body {
     background-image: url("https://cdn7.kiwilimon.com/recetaimagen/1654/13219.jpg")
 }
 
-
 h1 {
     color: green;
 }
@@ -17,9 +16,13 @@ img {
     padding: 50px;
     border: 5px solid rgb(0, 0, 0);
     background-color: rgb(12, 112, 112);
+    margin: auto;
 }
 
+.centrarcontenedor {
+    display: flex;
+    justify-content: center;
+}
 #spanId {
     font-size: 18px;
-    margin: 50px;
 }
