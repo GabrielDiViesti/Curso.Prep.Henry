@@ -28,6 +28,12 @@ const nuevoModulo = 21 % 5 === 1;
 function devolverString(str) {
   // "Return" la string provista: str
   // Tu código:
+  if (!str) {
+    return console.log ("Debes ingresar una string")
+  }
+  if (typeof str !== "string") {
+    return console.log ("El valor ingresado no es un tipo de dato string")
+  }
   return str;
 }
 
@@ -35,15 +41,18 @@ function suma(x, y) {
   // "x" e "y" son números
   // Suma "x" e "y" juntos y devuelve el valor
   // Tu código:
+  if (!x || !y) {
+    return console.log ("Debes ingresar 2 numeros para la suma")
+  }
   let resultado = x + y;
-  return x + y;
+  return resultado;
 }
 
 function resta(x, y) {
   // Resta "y" de "x" y devuelve el valor
   // Tu código:
-  let resultado = x - y;
-  return x - y;
+  let resultadoResta = x - y;
+  return resultadoResta;
 }
 
 function multiplica(x, y) {
@@ -86,6 +95,12 @@ function menosQueNoventa(num) {
   // Devuelve "true" si el argumento de la función "num" es menor que noventa
   // De lo contrario, devuelve "false"
   // Tu código:
+  if (!num) {
+    return console.warn ("Debes ingresar un numero")
+  }
+  if (typeof num !== "number") {
+    return console.warn ("Debes ingresar un tipo de dato numero")
+  }
   if (num < 90) {
     return true;
   } else {
@@ -97,7 +112,13 @@ function mayorQueCincuenta(num) {
   // Devuelve "true" si el argumento de la función "num" es mayor que cincuenta
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (num > 50) {
+  if (!num) {
+    return console.warn ("Debes ingresar una variable numerica")
+  }
+  if (typeof num !== "number") {
+    return console.warn ("Debes ingresar un numero")
+  }
+  if (num >  50) {
     return true;
   } else {
     return false;
@@ -136,19 +157,20 @@ function elevarAlCuadrado(num) {
   // Devuelve el valor de "num" elevado al cuadrado
   // ojo: No es raiz cuadrada!
   // Tu código:
-  return num **=2;
+  let resultado = Math.pow (num, 2);
+  return resultado;
 }
 
 function elevarAlCubo(num) {
   // Devuelve el valor de "num" elevado al cubo
   // Tu código:
-  return num **=3;
+  return Math.pow (num, 3);
 }
 
 function elevar(num, exponent) {
   // Devuelve el valor de "num" elevado al exponente dado en "exponent"
   // Tu código:
-  return Math.pow (num,exponent)
+  return Math.pow (num, exponent);
 }
 
 function redondearNumero(num) {
@@ -166,7 +188,7 @@ function redondearHaciaArriba(num) {
 function numeroRandom() {
   //Generar un número al azar entre 0 y 1 y devolverlo
   //Pista: investigá qué hace el método Math.random()
-  return Math.random ();
+  return Math.random;
 }
 
 function esPositivo(numero) {
@@ -176,9 +198,10 @@ function esPositivo(numero) {
   //Si el número es 0, devuelve false
   if (numero > 0) {
     return "Es positivo";
-  } else if (numero < 0) {
-    return "Es negativo"
-  } else if (numero === 0) {
+  }
+  else if (numero < 0) {
+    return "Es negativo";
+  } else {
     return false;
   }
 }
@@ -187,43 +210,59 @@ function agregarSimboloExclamacion(str) {
   // Agrega un símbolo de exclamación al final de la string "str" y devuelve una nueva string
   // Ejemplo: "hello world" pasaría a ser "hello world!"
   // Tu código:
-  return str + "!";
+  if (!str) {
+    return console.warn ("Debes ingresar una string")
+  }
+  if (typeof str !== "string") {
+    return console.warn ("Debes ingresar un tipo de dato string")
+  }
+  return str.concat("!");
 }
 
 function combinarNombres(nombre, apellido) {
   // Devuelve "nombre" y "apellido" combinados en una string y separados por un espacio.
   // Ejemplo: "Soy", "Henry" -> "Soy Henry"
   // Tu código:
-  let nombreCompleto = nombre + " " + apellido;
-  return nombreCompleto;
+  return nombre.concat(" " + apellido);
 }
 
 function obtenerSaludo(nombre) {
   // Toma la string "nombre" y concatena otras string en la cadena para que tome la siguiente forma:
   // "Martin" -> "Hola Martin!"
   // Tu código:
-  let saludo = "Hola " + nombre + "!";
-  return saludo;
+  if (!nombre) {
+    return console.warn ("Debes ingresar un nombre");
+  }
+  if (typeof nombre !== "string") {
+    return console.warn ("Debes ingresar un tipo de dato string");
+  }
+  return "Hola " + nombre.concat("!");
 }
 
 function obtenerAreaRectangulo(alto, ancho) {
   // Retornar el area de un rectángulo teniendo su altura y ancho
   // Tu código:
-  return alto * ancho;
+  let area = alto * ancho;
+  return area;
 }
 
 
 function retornarPerimetro(lado){
   //Escibe una función a la cual reciba el valor del lado de un cuadrado y retorne su perímetro.
   //Escribe tu código aquí
-  return lado * 4;
+  let perimetro = lado * 4;
+  return perimetro;
 }
 
 
 function areaDelTriangulo(base, altura){
   //Desarrolle una función que calcule el área de un triángulo.
   //Escribe tu código aquí
-  return (base * altura) / 2;
+  if (typeof base !== "number" || typeof altura !== "number") {
+    return console.warn ("Debes ingresar la base y la altura en numeros");
+  }
+  let areaTriangulo = (base * altura) / 2;
+  return areaTriangulo;
 }
 
 
@@ -231,6 +270,15 @@ function deEuroAdolar(euro){
   //Supongamos que 1 euro equivale a 1.20 dólares. Escribe un programa que reciba
   //como parámetro un número de euros y calcule el cambio en dólares.
   //Escribe tu código aquí
+  if (!euro) {
+    return console.warn("Debes ingresar un valor");
+  }
+  if (typeof euro !== "number") {
+    return console.warn("La variable ingresada debe ser un numero");
+  }
+  if (Math.sign(euro) === -1) {
+    return console.error("El numero no puede ser negativo porque se trata de dinero");
+  }
   let conversion = euro * 1.20;
   return conversion;
 }
@@ -242,13 +290,20 @@ function esVocal(letra){
   //que no se puede procesar el dato mediante el mensaje "Dato incorrecto".
   // Si no es vocal, tambien debe devolver "Dato incorrecto".
   //Escribe tu código aquí
+  if (!letra) {
+    return console.warn ("Debes ingresar la letra a evaluar");
+  }
+  if (typeof letra !== "string") {
+    return console.warn ("Debes ingresar un tipo de dato string")
+  }
   if (letra.length > 1) {
     return "Dato incorrecto"
-  } 
-  if (letra === a || letra === e || letra === i || letra === o || letra === u) {
+  }
+  let expRegVocal = /^[aeiou]$/;
+  if (expRegVocal === true) {
     return "Es vocal";
   } else {
-    return "Dato incorrecto";
+    return "Dato incorrecto"
   }
 }
 
